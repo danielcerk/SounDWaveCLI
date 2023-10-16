@@ -18,16 +18,16 @@ parser = arg.ArgumentParser(description='''
 
 parser.add_argument('--newpl', help='Comando para criar nova playlist.')
 parser.add_argument('--editpl', help='Comando para editar determinada playlist.')
+parser.add_argument('autor', nargs='?', help='Artista criado da música.')
 parser.add_argument('nome', nargs='?', help='Usado para substituir o nome antigo da playlist por um novo.')
-parser.add_argument('url', nargs='?', help='Url do vídeo .')
 parser.add_argument('--readpl', help='Comando para ler determinada playlist.')
 parser.add_argument('--delpl', help='Comando para deletar determinada playlist.')
 
 
 # Video
 
-parser.add_argument('--newvideo', help='Comando para criar nova playlist.')
-parser.add_argument('--delvideo', help='Comando para deletar determinada playlist.')
+parser.add_argument('--newvideo', help='Comando para criar novo vídeo.')
+parser.add_argument('--delvideo', help='Comando para deletar determinado vídeo.')
 
 # Musica player
 
@@ -72,7 +72,7 @@ elif args.readpl:
 elif args.newvideo:
 
 
-    pl.addVideo(args.nome, args.newvideo, args.url)
+    pl.addVideo(args.nome, args.newvideo, args.autor)
 
 
 elif args.delvideo:

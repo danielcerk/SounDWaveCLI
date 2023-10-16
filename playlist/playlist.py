@@ -18,39 +18,31 @@ class PlayList:
 
     def __init__(self, nome_playlist: str ,
                  nome_antigo_playlist: str, nome_novo_playlist: str,
-                 nome_video: str, link_video: str, playlist_json: dict):
+                 nome_video: str, artista: str, playlist_json: dict):
     
         self.nome_playlist = nome_playlist
         self.nome_antigo_playlist = nome_antigo_playlist
         self.nome_novo_playlist = nome_novo_playlist
         self.nome_video = nome_video
-        self.link_video = link_video
+        self.artista = artista
         self.playlist_json = playlist_json
 
-
-    def convertParaJson(self, nome_playlist, playlist_json):
+    def novaPlaylist(self, nome_playlist):
 
         with open('playlist.json', 'r') as arquivo:
             
             dados = json.load(arquivo)
-
-        
-
-        dados[nome_playlist] = playlist_json
-
-        with open('playlist.json', 'w') as arquivo:
-
-            json.dump(dados, arquivo, indent=4)
-
-
-    def novaPlaylist(self, nome_playlist):
 
 
         playlist = [{
 
         }]
 
-        converter_para_json = self.convertParaJson(nome_playlist, playlist)
+        dados[nome_playlist] = playlist
+
+        with open('playlist.json', 'w') as arquivo:
+
+            json.dump(dados, arquivo, indent=4)
 
 
 
@@ -124,7 +116,14 @@ class PlayList:
             
 
     def addVideo(self, nome_playlist, nome_video,
-        link_video):
+        artista):
+
+        with open('playlist.json', 'r') as arquivo:
+
+            dados = json.load(arquivo)
+
+
+        link_video = f"https://soundcloud.com/{artista}/{nome_video}"
 
 
         video = {
@@ -134,11 +133,6 @@ class PlayList:
 
 
         }
-
-        
-        with open('playlist.json', 'r') as arquivo:
-
-            dados = json.load(arquivo)
 
 
         if nome_playlist in dados:

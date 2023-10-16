@@ -3,7 +3,14 @@
         {
             "nome": "She_knows",
             "link": "https://www.youtube.com/watch?v=AuNzvKvWllo"
+        },
+        {
+            "nome": "shape_of_you",
+            "link": "https://soundcloud.com/ed_sheeran/shape_of_you"
+        },
+        {
+            "nome": "knock_knock",
+            "link": "https://soundcloud.com/sofaygo/knock_knock"
         }
-    ],
-    "brasileira": []
+    ]
 }
