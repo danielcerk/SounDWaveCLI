@@ -1,16 +1,13 @@
 {
     "internacional": [
         {
-            "nome": "She_knows",
-            "link": "https://www.youtube.com/watch?v=AuNzvKvWllo"
+            "nome": "som_chuva",
+            "caminho": "C:\\Users\\WIN7\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\Interfaces-Graficas-Py\\Aprendendo-flask\\musicaparadormir\\script\\audio\\sound.mp3"
         },
+
         {
-            "nome": "shape_of_you",
-            "link": "https://soundcloud.com/ed_sheeran/shape_of_you"
-        },
-        {
-            "nome": "knock_knock",
-            "link": "https://soundcloud.com/sofaygo/knock_knock"
+        	"nome": "zzzz",
+        	"caminho": "kkkkkkkkkk"
         }
     ]
 }

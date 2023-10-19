@@ -27,6 +27,9 @@ class PlayList:
         self.artista = artista
         self.playlist_json = playlist_json
 
+
+    # ok
+
     def novaPlaylist(self, nome_playlist):
 
         with open('playlist.json', 'r') as arquivo:
@@ -44,7 +47,7 @@ class PlayList:
 
             json.dump(dados, arquivo, indent=4)
 
-
+    # ok
 
     def readPlaylist(self, nome_playlist):
 
@@ -56,8 +59,18 @@ class PlayList:
 
         if nome_playlist in dados:
 
+            playlist = dados[nome_playlist]
 
-            print(dados[nome_playlist])
+            for i in playlist:
+
+                
+                nome = i['nome']
+                caminho = i['caminho']
+
+                print(f'Nome da música: {nome}')
+                print(f'Caminho: {caminho}')
+                
+            #print(dados[nome_playlist])
 
 
         else:
@@ -91,6 +104,7 @@ class PlayList:
             print('Playlist inexistente . Por favor, verifique a sua ortografia .')            
             
 
+    # ok
 
     def deletePlaylist(self, nome_playlist):
 
@@ -113,23 +127,21 @@ class PlayList:
 
 
             print('Playlist inexistente . Por favor, verifique a sua ortografia .')
-            
+    
+    # ok            
 
     def addVideo(self, nome_playlist, nome_video,
-        artista):
+        caminho):
 
         with open('playlist.json', 'r') as arquivo:
 
             dados = json.load(arquivo)
 
 
-        link_video = f"https://soundcloud.com/{artista}/{nome_video}"
-
-
         video = {
 
             "nome": nome_video,
-            "link": link_video
+            "caminho": caminho
 
 
         }

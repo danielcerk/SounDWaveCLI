@@ -1,7 +1,6 @@
 from playlist import playlist
 from musica import musica
 import argparse as arg
-import keyboard
 
 # link do youtube deve ser substituido por soundcloud
 
@@ -18,9 +17,10 @@ parser = arg.ArgumentParser(description='''
 
 parser.add_argument('--newpl', help='Comando para criar nova playlist.')
 parser.add_argument('--editpl', help='Comando para editar determinada playlist.')
-parser.add_argument('autor', nargs='?', help='Artista criado da música.')
+parser.add_argument('caminho', nargs='?', help='Caminho que está localizado a música') # Substituir mais tarde por caminho
 parser.add_argument('nome', nargs='?', help='Usado para substituir o nome antigo da playlist por um novo.')
 parser.add_argument('--readpl', help='Comando para ler determinada playlist.')
+parser.add_argument('--runpl', help='Use o comando para ouvir sua playlist')
 parser.add_argument('--delpl', help='Comando para deletar determinada playlist.')
 
 
@@ -40,7 +40,7 @@ args = parser.parse_args()
 
 
 pl = playlist.PlayList('', '', '', '','', {})
-play_musica = musica.musicPlayer('', '')
+play_musica = musica.musicPlayer('')
 
 if args.newpl:
 
@@ -68,11 +68,15 @@ elif args.readpl:
     pl.readPlaylist(args.readpl)
 
 
+elif args.runpl:
+
+    print('Rodando playlist')
+
 
 elif args.newvideo:
 
 
-    pl.addVideo(args.nome, args.newvideo, args.autor)
+    pl.addVideo(args.nome, args.newvideo, args.caminho)
 
 
 elif args.delvideo:
@@ -83,9 +87,5 @@ elif args.delvideo:
 
 elif args.playmusic:
 
-    #play_musica.play(args.playmusic, args.nome)
 
-    keyboard.on_press_key("p", print('Pausar'))
-    keyboard.on_press_key("k", print('Continuar'))
-    keyboard.on_press_key("r", print('Reiniciar'))
-
+    play_musica.play(args.playmusic)

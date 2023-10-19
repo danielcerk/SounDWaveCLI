@@ -1,62 +1,33 @@
 import pygame
-import soundcloud
+import keyboard
 import time
 
-pygame.init()
+pygame.mixer.pre_init(44100, -16, 2, 2048)
 
 class musicPlayer:
 
-	def __init__(self, nome_musica: str, artista: str):
+	def __init__(self, musica: str):
 
-		self.nome_musica = nome_musica
-		self.artista = artista
-
-
-	def play(self, nome_musica, artista):
+		self.musica = musica
 
 
-		client = soundcloud.Client(client_id='SEU_CLIENT_ID')
+	# ok
 
-		musica_url = f'https://soundcloud.com/{artista}/{nome_musica}'
+	def play(self, musica):
 
-		track = client.get('/resolve', url=musica_url)
+		pygame.init()
 
-		stream_url = client.get(track.stream_url, allow_redirects=False)
+		try:
 
-		stream_url = str(client.get(track.stream_url, allow_redirects=False).location)
+			pygame.mixer.music.load(musica)
+			pygame.mixer.music.play()
 
-		pygame.mixer.music.load(stream_url)
+			while pygame.mixer.music.get_busy():
 
-		pygame.mixer.music.play()
+				pass
 
-		print(f"Reproduzindo: {track.title} de {track.user['username']}")
+		except pygame.error:
+				
+			print('Musica não encontrada . Por favor, verifique a ortografia .')
 
-
-	# Para pausar, continuar e replay podemos usar atalhos na tecla
-
-
-	def pause(self):
-
-		# Pausa a reprodução
-
-		pygame.mixer.music.pause()
-		print("Pausado")
-
-	def continuar_a_musica(self):
-
-		# Retome a reprodução
-		
-		pygame.mixer.music.unpause()
-		print("Retomado")
-
-
-	def replay(self):
-
-		# Reinicia a faixa para o início
-
-		pygame.mixer.music.rewind()
-		print("Reiniciado")
-
-
-
-
+		pygame.quit()
