@@ -16,16 +16,14 @@ import json
 
 class PlayList:
 
-    def __init__(self, nome_playlist: str ,
-                 nome_antigo_playlist: str, nome_novo_playlist: str,
-                 nome_video: str, artista: str, playlist_json: dict):
+    def __init__(self):
     
-        self.nome_playlist = nome_playlist
-        self.nome_antigo_playlist = nome_antigo_playlist
-        self.nome_novo_playlist = nome_novo_playlist
-        self.nome_video = nome_video
-        self.artista = artista
-        self.playlist_json = playlist_json
+        self.nome_playlist = None
+        self.nome_antigo_playlist = None
+        self.nome_novo_playlist = None
+        self.nome_video = None
+        self.artista = None
+        self.playlist_json = None
 
 
     # ok

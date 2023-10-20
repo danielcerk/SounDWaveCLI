@@ -2,16 +2,11 @@ import pygame
 import keyboard
 import time
 
-pygame.mixer.pre_init(44100, -16, 2, 2048)
-
 class musicPlayer:
 
-	def __init__(self, musica: str):
+	def __init__(self):
 
-		self.musica = musica
-
-
-	# ok
+		self.musica = None
 
 	def play(self, musica):
 

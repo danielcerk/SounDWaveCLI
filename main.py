@@ -1,91 +1,75 @@
 from playlist import playlist
 from musica import musica
-import argparse as arg
-
-# link do youtube deve ser substituido por soundcloud
-
-parser = arg.ArgumentParser(description='''
-
-    CliForWeb é uma Cli para monitorar a ativadade
-    web de uma forma organizada como fazer agendamentos,
-    playlists, ordem de entrada em sites, salvar urls e
-    contas .
-
-''')
-
-# Uso para playlist
-
-parser.add_argument('--newpl', help='Comando para criar nova playlist.')
-parser.add_argument('--editpl', help='Comando para editar determinada playlist.')
-parser.add_argument('caminho', nargs='?', help='Caminho que está localizado a música') # Substituir mais tarde por caminho
-parser.add_argument('nome', nargs='?', help='Usado para substituir o nome antigo da playlist por um novo.')
-parser.add_argument('--readpl', help='Comando para ler determinada playlist.')
-parser.add_argument('--runpl', help='Use o comando para ouvir sua playlist')
-parser.add_argument('--delpl', help='Comando para deletar determinada playlist.')
+from info import info
 
 
-# Video
+def run():
 
-parser.add_argument('--newvideo', help='Comando para criar novo vídeo.')
-parser.add_argument('--delvideo', help='Comando para deletar determinado vídeo.')
+	# Argumentos do app
 
-# Musica player
-
-# Cada música precisa de um nome e o autor
-
-parser.add_argument('--playmusic', help='Comando para iniciar sua música')
+	arguments = info.info()
+	args = arguments.add_arguments()
 
 
-args = parser.parse_args()
+	# Ações envolvendo playlist e música
+
+	pl = playlist.PlayList()
+	play_musica = musica.musicPlayer()
+
+	if args.newpl:
+
+	    pl.novaPlaylist(args.newpl)
 
 
-pl = playlist.PlayList('', '', '', '','', {})
-play_musica = musica.musicPlayer('')
+	elif args.delpl:
 
-if args.newpl:
-
-    pl.novaPlaylist(args.newpl)
+	    pl.deletePlaylist(args.delpl)
 
 
-elif args.delpl:
+	elif args.editpl:
 
-    pl.deletePlaylist(args.delpl)
+	    # args.editpl é o nome antigo, existente
+	    # args.novo_nome é o novo nome
 
+	    # juntos eles devem editar o nome da chave
 
-elif args.editpl:
-
-    # args.editpl é o nome antigo, existente
-    # args.novo_nome é o novo nome
-
-    # juntos eles devem editar o nome da chave
-
-    pl.editPlayList(args.editpl, args.nome)
+	    pl.editPlayList(args.editpl, args.nome)
 
 
-elif args.readpl:
+	elif args.readpl:
 
 
-    pl.readPlaylist(args.readpl)
+	    pl.readPlaylist(args.readpl)
 
 
-elif args.runpl:
+	elif args.runpl:
 
-    print('Rodando playlist')
-
-
-elif args.newvideo:
+	    print('Rodando playlist')
 
 
-    pl.addVideo(args.nome, args.newvideo, args.caminho)
+	elif args.newmusica:
 
 
-elif args.delvideo:
+	    pl.addVideo(args.nome, args.newmusica, args.caminho)
 
 
-    pl.deleteVideo(args.nome, args.delvideo)
+	elif args.delmusica:
 
 
-elif args.playmusic:
+	    pl.deleteVideo(args.nome, args.delvmusica)
 
 
-    play_musica.play(args.playmusic)
+	elif args.playmusica:
+
+
+	    play_musica.play(args.playmusica)
+
+
+	elif args.version:
+
+	    arguments.version()
+
+
+if __name__ == '__main__':
+
+	run()

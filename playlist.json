@@ -4,10 +4,13 @@
             "nome": "som_chuva",
             "caminho": "C:\\Users\\WIN7\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\Interfaces-Graficas-Py\\Aprendendo-flask\\musicaparadormir\\script\\audio\\sound.mp3"
         },
-
         {
-        	"nome": "zzzz",
-        	"caminho": "kkkkkkkkkk"
+            "nome": "zzzz",
+            "caminho": "kkkkkkkkkk"
+        },
+        {
+            "nome": "kkkkkkk",
+            "caminho": "zzzzzz"
         }
     ]
 }
