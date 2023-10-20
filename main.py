@@ -44,7 +44,7 @@ def run():
 
 	elif args.runpl:
 
-	    print('Rodando playlist')
+	    play_musica.runPlaylist(args.runpl)
 
 
 	elif args.newmusica:

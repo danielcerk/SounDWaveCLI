@@ -124,7 +124,8 @@ class PlayList:
 
 
             print('Playlist inexistente . Por favor, verifique a sua ortografia .')
-    
+
+
     # ok            
 
     def addVideo(self, nome_playlist, nome_video,
