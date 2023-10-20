@@ -33,7 +33,7 @@ def run():
 
 	    # juntos eles devem editar o nome da chave
 
-	    pl.editPlayList(args.editpl, args.nome)
+	    pl.editPlayList(args.editpl, args.caminho)
 
 
 	elif args.readpl:
@@ -56,7 +56,7 @@ def run():
 	elif args.delmusica:
 
 
-	    pl.deleteVideo(args.nome, args.delvmusica)
+	    pl.deleteVideo(args.caminho, args.delmusica)
 
 
 	elif args.playmusica:

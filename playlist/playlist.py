@@ -67,15 +67,13 @@ class PlayList:
 
                 print(f'Nome da música: {nome}')
                 print(f'Caminho: {caminho}')
-                
-            #print(dados[nome_playlist])
-
 
         else:
 
 
             print('Playlist inexistente . Por favor, verifique a sua ortografia .')  
 
+    # ok
 
     def editPlayList(self, nome_antigo_playlist, nome_novo_playlist):
 
@@ -90,7 +88,7 @@ class PlayList:
 
             dados[nome_novo] = dados[nome_antigo]
 
-            del dados[nome_antigo]
+            del dados[nome_antigo]        
 
             with open('playlist.json', 'w') as arquivo:
 
@@ -100,7 +98,8 @@ class PlayList:
 
 
             print('Playlist inexistente . Por favor, verifique a sua ortografia .')            
-            
+        
+
 
     # ok
 
