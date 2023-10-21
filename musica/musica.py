@@ -1,5 +1,4 @@
 import pygame
-import keyboard
 import json
 import time
 
