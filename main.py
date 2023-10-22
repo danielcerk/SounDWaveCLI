@@ -2,6 +2,13 @@ from playlist import playlist
 from musica import musica
 from info import info
 
+'''
+
+Transformar caminho e nome em argumentos
+criar a opção de pausar, reiniciar, retomar
+
+'''
+
 
 def run():
 
@@ -33,7 +40,7 @@ def run():
 
 	    # juntos eles devem editar o nome da chave
 
-	    pl.editPlayList(args.editpl, args.caminho)
+	    pl.editPlayList(args.editpl, args.n)
 
 
 	elif args.readpl:
@@ -50,25 +57,20 @@ def run():
 	elif args.newmusica:
 
 
-	    pl.addVideo(args.nome, args.newmusica, args.caminho)
+	    pl.addVideo(args.n, args.newmusica, args.c)
 
 
 	elif args.delmusica:
 
 
-	    pl.deleteVideo(args.caminho, args.delmusica)
+	    pl.deleteVideo(args.n, args.delmusica)
 
 
 	elif args.playmusica:
 
 
 	    play_musica.play(args.playmusica)
-
-
-	elif args.version:
-
-	    arguments.version()
-
+	    
 
 if __name__ == '__main__':
 

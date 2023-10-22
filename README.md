@@ -106,4 +106,4 @@ python main.py --version
 
 
 # Licença
-<p>Código licenciado sob <a href=''> licença MIT</a></p>
+<p>Código licenciado sob <a href='https://github.com/danielcerk/SounDWaveCLI/blob/main/LICENSE'> licença MIT</a></p>

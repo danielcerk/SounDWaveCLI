@@ -21,9 +21,6 @@ class info:
 			
 			parser.add_argument(i[0], help=i[1])
 
-		parser.add_argument('caminho', nargs='?', help='Caminho que está localizado a música')
-		parser.add_argument('nome', nargs='?', help='Usado para substituir o nome antigo da playlist por um novo.')
-
 		return parser.parse_args()
 
 	def arguments(self):
@@ -38,12 +35,6 @@ class info:
 		('--newmusica', 'Comando para adicionar nova música.'),
 		('--delmusica', 'Comando para deletar determinada música.'),
 		('--playmusica', 'Comando para iniciar sua música.'),
-		('--version', 'Comando para mostrar versão do app.')
-
+		('--c', 'Caminho que está localizado a música'),
+		('--n', 'Usado para substituir o nome antigo da playlist por um novo.')
 		]
-
-
-	def version(self):
-
-		print('v0.9.5')
-
