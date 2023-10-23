@@ -1,6 +1,9 @@
 import pygame
+import keyboard
+import threading
 import json
 import time
+
 
 class musicPlayer:
 
@@ -9,6 +12,24 @@ class musicPlayer:
 		self.musica = None
 		self.nome_playlist = None
 
+	def controlar_musica(self):
+
+		while True:
+
+			if keyboard.is_pressed('p'):
+
+				pygame.mixer.music.pause()
+
+			if keyboard.is_pressed('r'):
+
+				pygame.mixer.music.unpause()
+
+			if keyboard.is_pressed('space'):
+
+				pygame.mixer.music.rewind()
+
+
+
 	def play(self, musica):
 
 		pygame.init()
@@ -16,11 +37,21 @@ class musicPlayer:
 		try:
 
 			pygame.mixer.music.load(musica)
-			pygame.mixer.music.play()
 
-			while pygame.mixer.music.get_busy():
+			print('Pressione Ctrl+C para sair')
 
-				pass
+			# Ouvir a música
+
+			music_thread = threading.Thread(target=pygame.mixer.music.play)
+			music_thread.start()
+
+			# Controlar a música
+
+			control_thread = threading.Thread(target=self.controlar_musica())
+			control_thread.start()
+	
+			music_thread.join()
+			control_thread.join()
 
 		except pygame.error:
 				

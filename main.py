@@ -2,13 +2,6 @@ from playlist import playlist
 from musica import musica
 from info import info
 
-'''
-
-Transformar caminho e nome em argumentos
-criar a opção de pausar, reiniciar, retomar
-
-'''
-
 
 def run():
 

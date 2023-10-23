@@ -25,21 +25,23 @@ pip install -r requirements.txt
 
 # Parâmetros
 
+<div align="center">
 
-| Parâmetro | Descrição | Obrigatório | Padrão |
-| --- | --- | --- | --- |
-| `--newpl` | Cria nova playlist. | Sim | |
-| `--editpl` | Edita determinada playlist | Sim | |
-| `--readpl` | Ler determinada playlist | Sim | |
-| `--runpl` | Ouvir sua playlist | Sim | |
-| `--delpl` | Deleta determinada playlist | Sim | |
-| `--newmusica` | Adiciona nova música | Sim | |
-| `--delmusica` | Deleta determinada música | Sim | |
-| `--playmusica` | Dar play em música | Sim | |
-| `--version` | Versão do programa | Não | |
-| `caminho` | Argumento para especificar o local que está localizado a música | Não | |
-| `nome` | Argumento para usar em edição de nome de playlist | Não | |
+  | Parâmetro | Descrição | Obrigatório |
+  | --- | --- | --- |
+  | `--newpl` | Cria nova playlist. | Sim |
+  | `--editpl` | Edita determinada playlist | Sim |
+  | `--readpl` | Ler determinada playlist | Sim |
+  | `--runpl` | Ouvir sua playlist | Sim |
+  | `--delpl` | Deleta determinada playlist | Sim |
+  | `--newmusica` | Adiciona nova música | Sim |
+  | `--delmusica` | Deleta determinada música | Sim |
+  | `--playmusica` | Dar play em música | Sim |
+  | `--c` | Especificar o local que está localizado a música | Não |
+  | `--n` | Criar novo nome para playlist playlist | Não |
 
+  
+</div>
 
 # Uso
 
@@ -54,7 +56,7 @@ python main.py --newpl nome_playlist
 Editar nome da playlist:
 
 ```
-python main.py --editpl nome_antigo nome_novo
+python main.py --editpl nome_antigo -n nome_novo
 ```
 
 Ver todos as músicas da playlist:
@@ -78,20 +80,22 @@ python main.py --delpl nome_playlist
 Adicionar música:
 
 ```
-python main.py --newmusica nome_musica caminho_localizado nome_playlist
+python main.py --newmusica nome_musica -c caminho_localizado -n nome_playlist
 ```
 
 Deletar música:
 
 ```
-python main.py --delmusica nome_musica nome_playlist
+python main.py --delmusica nome_musica -n nome_playlist
 ```
 
-Versão do app:
+Dar play em música:
 
 ```
-python main.py --version
+python main.py --playmusica caminho_musica
 ```
+
+
 
 # Dependências
 
