@@ -11,6 +11,7 @@ class musicPlayer:
 
 		self.musica = None
 		self.nome_playlist = None
+		self.volume = 1.0
 
 	def controlar_musica(self):
 
@@ -28,7 +29,32 @@ class musicPlayer:
 
 				pygame.mixer.music.rewind()
 
+			if keyboard.is_pressed('+'):
 
+				self.aumentar_volume()
+
+			if keyboard.is_pressed('-'):
+
+				self.diminuir_volume()
+
+			if keyboard.is_pressed('b'):
+
+				break
+
+
+	def aumentar_volume(self):
+
+		if self.volume < 1.0:
+
+			self.volume += 0.1
+			pygame.mixer.music.set_volume(self.volume)
+
+	def diminuir_volume(self):
+
+		if self.volume > 0.0:
+
+			self.volume -= 0.1
+			pygame.mixer.music.set_volume(self.volume)
 
 	def play(self, musica):
 
@@ -38,8 +64,9 @@ class musicPlayer:
 
 			pygame.mixer.music.load(musica)
 
-			print('Pressione Ctrl+C para sair')
+			print('Pressione b para sair')
 
+			pygame.mixer.music.set_volume(self.volume)
 			# Ouvir a música
 
 			music_thread = threading.Thread(target=pygame.mixer.music.play)
@@ -96,6 +123,28 @@ class musicPlayer:
 					while pygame.mixer.music.get_busy():
 
 						pass
+					
+					'''
+
+					print('Pressione b para ir pra próxima música')
+
+					# Ouvir a música
+
+					music_thread = threading.Thread(target=pygame.mixer.music.play)
+					music_thread.start()
+
+					
+
+					# Controlar a música
+
+					control_thread = threading.Thread(target=self.controlar_musica())
+					control_thread.start()
+				
+
+					music_thread.join()					
+					control_thread.join()
+
+					'''
 
 				except pygame.error:
 
