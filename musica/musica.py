@@ -12,6 +12,7 @@ class musicPlayer:
 		self.musica = None
 		self.nome_playlist = None
 		self.volume = 1.0
+		self.estado_volume_mudado = False
 
 	def controlar_musica(self):
 
@@ -29,13 +30,19 @@ class musicPlayer:
 
 				pygame.mixer.music.rewind()
 
-			if keyboard.is_pressed('+'):
+			if keyboard.is_pressed('+') and not self.estado_volume_mudado:
 
 				self.aumentar_volume()
+				self.volume_changed = True
 
-			if keyboard.is_pressed('-'):
+			if keyboard.is_pressed('-') and not self.estado_volume_mudado:
 
 				self.diminuir_volume()
+				self.estado_volume_mudado = True
+
+			if not keyboard.is_pressed('+') and not keyboard.is_pressed('-'):
+
+				self.estado_volume_mudado = False
 
 			if keyboard.is_pressed('b'):
 
