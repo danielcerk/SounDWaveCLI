@@ -131,7 +131,7 @@ class musicPlayer:
 
 						pass
 					
-					'''
+					
 
 					print('Pressione b para ir pra próxima música')
 
@@ -139,8 +139,6 @@ class musicPlayer:
 
 					music_thread = threading.Thread(target=pygame.mixer.music.play)
 					music_thread.start()
-
-					
 
 					# Controlar a música
 
@@ -150,8 +148,6 @@ class musicPlayer:
 
 					music_thread.join()					
 					control_thread.join()
-
-					'''
 
 				except pygame.error:
 
